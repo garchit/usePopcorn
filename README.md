@@ -1,70 +1,158 @@
-# Getting Started with Create React App
+# UsePopcorn
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**UsePopcorn** is a React-based project that fetches movie details from the IMDb API and displays them in an intuitive and user-friendly interface. The application allows users to explore movie information such as title, plot, actors, ratings, and more.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **Fetch Movie Details**: Retrieves detailed movie information from the IMDb API, including title, plot, actors, genres, ratings, and more.
+- **Dynamic UI**: Responsive and visually appealing user interface built with React.
+- **Search Functionality**: Search for movies using keywords and view their detailed information.
+- **Interactive Components**: Expandable sections for movie details and summaries.
+- **Conditional Rendering**: Shows detailed movie information or a summary list based on user interaction.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Installation
 
-### `npm test`
+Follow these steps to set up and run the project on your local machine:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Prerequisites
+- Node.js (>=14.0.0)
+- npm or yarn
 
-### `npm run build`
+### Steps
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/usepopcorn.git
+   cd usepopcorn
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+   or
+   ```bash
+   yarn install
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Create an `.env` file in the root directory and add your IMDb API key:
+   ```env
+   REACT_APP_IMDB_API_KEY=your_api_key_here
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. Start the development server:
+   ```bash
+   npm start
+   ```
+   or
+   ```bash
+   yarn start
+   ```
 
-### `npm run eject`
+5. Open the application in your browser:
+   ```
+   http://localhost:3000
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Usage
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. Enter a movie name or keyword in the search bar.
+2. Browse the search results and click on a movie to view detailed information.
+3. Toggle between summary and detailed views of the selected movie.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## File Structure
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+usepopcorn/
+├── public/           # Public assets
+├── src/
+│   ├── App.js        # Main application file containing all components
+│   ├── index.js      # Entry point
+│   └── styles.css    # CSS styles
+├── .env              # Environment variables
+├── package.json      # Project dependencies and scripts
+├── README.md         # Documentation (this file)
+└── ...
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## Dependencies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- **React**: Frontend framework
+- **Fetch API**: For making API requests
+- **React Icons**: For icons used in the UI
+- **dotenv**: For managing environment variables
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## API Integration
 
-### Making a Progressive Web App
+This project integrates with the IMDb API to fetch movie details. Ensure that you have a valid API key and configure it in the `.env` file.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Example API Request:
+```javascript
+const fetchMovieDetails = async (movieId) => {
+  const apiKey = process.env.REACT_APP_IMDB_API_KEY;
+  const response = await fetch(`https://www.omdbapi.com/?i=${movieId}&apikey=${apiKey}`);
+  const data = await response.json();
+  return data;
+};
+```
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Future Enhancements
 
-### Deployment
+- Add user authentication for personalized movie recommendations.
+- Enable saving favorite movies to a user profile.
+- Implement pagination for large search results.
+- Improve UI/UX with additional animations and themes.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+## Contribution
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Contributions are welcome! Feel free to open issues or submit pull requests for any improvements or bug fixes.
+
+### Steps to Contribute
+1. Fork the repository.
+2. Create a feature branch:
+   ```bash
+   git checkout -b feature-name
+   ```
+3. Commit your changes:
+   ```bash
+   git commit -m "Description of changes"
+   ```
+4. Push the branch:
+   ```bash
+   git push origin feature-name
+   ```
+5. Open a pull request.
+
+---
+
+## License
+
+This project is licensed under the MIT License. See the `LICENSE` file for details.
+
+---
+
+## Acknowledgments
+
+- IMDb API for providing movie data.
+- React.js for the powerful frontend framework.
+- All contributors and users who have supported this project.
+
+---
+
+**Happy Coding!**
+
